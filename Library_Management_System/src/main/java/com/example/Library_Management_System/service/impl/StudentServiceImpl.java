@@ -17,10 +17,14 @@ public class StudentServiceImpl  implements StudentService {
      StudentRepository studentRepository;
     public String addStudent( Student student){
         Card card = new Card();
-
+//genrate new card
         card.setCardStatus(CardStatus.ACTIVATED);
-        card.setValidTill(new Date("2025-12-01"));
+        card.setValidTill("2025-12-01");
         card.setStudent(student);
+
+        //set card ifor the student
         student.setCard(card);
+        studentRepository.save(student);
+        return " Student Added successfully";
     }
 }

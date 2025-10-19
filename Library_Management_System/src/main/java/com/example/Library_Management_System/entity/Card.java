@@ -21,7 +21,7 @@ public class Card {
    private Date date;
     @Enumerated(EnumType.STRING)
     private CardStatus cardStatus;
-    private Date validTill;
+    private String validTill;
 
     @OneToOne
     @JoinColumn

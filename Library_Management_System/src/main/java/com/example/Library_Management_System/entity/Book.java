@@ -23,4 +23,9 @@ public class Book {
     private int noOfPages;
     private int price;
 
+    @ManyToOne
+    @JoinColumn
+
+    Author author;
+
 }
