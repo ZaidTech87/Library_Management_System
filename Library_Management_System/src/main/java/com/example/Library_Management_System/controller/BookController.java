@@ -14,14 +14,15 @@ public class BookController {
     @Autowired
     BookService bookService;
 
-    @PostMapping("add")
+    @PostMapping("/add")
     public String addBook(@RequestBody Book book) throws Exception {
         return bookService.addBook(book);
-
+    }
         //find all the book;
         //find all book a particular authorid
         //find the number of book writteb by ann author
-        @GetMapping("/findAllBook")
+
+    @GetMapping("/findallBook")
         public List<Book> findAllBook(){
         return bookService.findAllBook();
         }
@@ -30,9 +31,9 @@ public class BookController {
         return bookService.findAllBookParticularAuthorId(id);
         }
         @GetMapping("/findNoBook")
-                public int findNoofBookByAuthor(@RequestParam int id){
+        public int findNoofBookByAuthor(@RequestParam int id){
         return bookService.findNoofBookByAuthor(id);
         }
 
-    }
+
 }

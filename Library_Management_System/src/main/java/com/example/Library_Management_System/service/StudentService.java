@@ -1,8 +1,17 @@
 package com.example.Library_Management_System.service;
 
 import com.example.Library_Management_System.entity.Student;
-import com.example.Library_Management_System.service.impl.StudentServiceImpl;
+import java.util.List;
 
-public interface StudentService  {
-    public String addStudent(Student student);
+public interface StudentService {
+
+    String addStudent(Student student);
+
+    String deleteStudent(int id);
+
+    String updateStudent(int id, String name);
+
+    Student findStudentById(int id);
+
+    List<Student> findAllStudents();
 }

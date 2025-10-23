@@ -7,24 +7,57 @@ import com.example.Library_Management_System.repository.StudentRepository;
 import com.example.Library_Management_System.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @Service
-public class StudentServiceImpl  implements StudentService {
+public class StudentServiceImpl implements StudentService {
+
     @Autowired
-     StudentRepository studentRepository;
-    public String addStudent( Student student){
+    private StudentRepository studentRepository;
+
+    @Override
+    public String addStudent(Student student) {
         Card card = new Card();
-//genrate new card
         card.setCardStatus(CardStatus.ACTIVATED);
         card.setValidTill("2025-12-01");
         card.setStudent(student);
 
-        //set card ifor the student
         student.setCard(card);
         studentRepository.save(student);
-        return " Student Added successfully";
+        return "Student added successfully!";
+    }
+
+    @Override
+    public String deleteStudent(int id) {
+        studentRepository.deleteById(id);
+        return "Student deleted successfully!";
+    }
+
+    @Override
+    public String updateStudent(int id, String name) {
+        Optional<Student> optionalStudent = studentRepository.findById(id);
+        if (optionalStudent.isPresent()) {
+            Student student = optionalStudent.get();
+            student.setName(name);
+            studentRepository.save(student);
+            return "Student updated successfully!";
+        } else {
+            return "Student not found!";
+        }
+    }
+
+    @Override
+    public Student findStudentById(int id) {
+        return studentRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public List<Student> findAllStudents() {
+        List<Student> students = new ArrayList<>();
+        studentRepository.findAll().forEach(students::add);
+        return students;
     }
 }

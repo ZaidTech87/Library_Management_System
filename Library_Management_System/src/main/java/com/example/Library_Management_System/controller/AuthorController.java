@@ -14,8 +14,9 @@ public class AuthorController {
     @Autowired
     AuthorService authorService;
     @PostMapping("/add")
-    public String addAuthor(@RequestBody Author author){
+    public String addAuthor(@RequestBody Author author) {
         return authorService.addAuthor(author);
+    }
 
         //delete author by id
         //update the author by id
@@ -27,11 +28,11 @@ public class AuthorController {
         }
 
         @PutMapping("/updateAuthor")
-        public String updateAuthor(@RequestParam int id){
-            return authorService.updateAuthor(id);
+        public String updateAuthor(@RequestParam int id,@RequestBody String name){
+            return authorService.updateAuthor(id,name);
         }
         @GetMapping("/findAuthorById")
-        public Student findAuthorByIdd(@RequestParam int id){
+        public Author findAuthorById(@RequestParam int id){
             return authorService.findAuthorById(id);
         }
 
@@ -41,5 +42,5 @@ public class AuthorController {
         }
 
 
-    }
+
 }
