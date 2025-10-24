@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Service
-public abstract class AuthorServiceiImpl implements AuthorService {
+public  class AuthorServiceiImpl implements AuthorService {
 
     @Autowired
     AuthorRepository authorRepository;

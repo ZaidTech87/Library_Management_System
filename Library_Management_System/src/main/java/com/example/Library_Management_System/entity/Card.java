@@ -1,6 +1,7 @@
 package com.example.Library_Management_System.entity;
 
 import com.example.Library_Management_System.enums.CardStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -25,5 +26,6 @@ public class Card {
 
     @OneToOne
     @JoinColumn
+    @JsonIgnore
     private Student student;
 }
