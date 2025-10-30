@@ -1,5 +1,6 @@
 package com.example.Library_Management_System.controller;
 
+import com.example.Library_Management_System.dto.requestDTO.StudentRequestDTO;
 import com.example.Library_Management_System.entity.Student;
 import com.example.Library_Management_System.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,8 @@ public class StudentController {
 
     // ✅ Add a new student
     @PostMapping("/add")
-    public String addStudent(@RequestBody Student student) {
-        return studentService.addStudent(student);
+    public String addStudent(@RequestBody StudentRequestDTO studentRequestDTO) {
+        return studentService.addStudent(studentRequestDTO);
     }
 
     // ✅ Delete a student by ID

@@ -1,5 +1,6 @@
 package com.example.Library_Management_System.service.impl;
 
+import com.example.Library_Management_System.dto.requestDTO.StudentRequestDTO;
 import com.example.Library_Management_System.entity.Card;
 import com.example.Library_Management_System.entity.Student;
 import com.example.Library_Management_System.enums.CardStatus;
@@ -19,7 +20,7 @@ public class StudentServiceImpl implements StudentService {
     private StudentRepository studentRepository;
 
     @Override
-    public String addStudent(Student student) {
+    public String addStudent(StudentRequestDTO studentRequestDTO) {
         Card card = new Card();
         card.setCardStatus(CardStatus.ACTIVATED);
         card.setValidTill("2025-12-01");
@@ -59,5 +60,7 @@ public class StudentServiceImpl implements StudentService {
         List<Student> students = new ArrayList<>();
         studentRepository.findAll().forEach(students::add);
         return students;
+        //lecture 4 ,48.38 mujhe dtart karna hai
+
     }
 }
