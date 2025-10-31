@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
 
@@ -20,6 +21,9 @@ public class Card {
     private int id;
     @CreationTimestamp
    private Date date;
+    @UpdateTimestamp
+    private Date updadetOn;
+
     @Enumerated(EnumType.STRING)
     private CardStatus cardStatus;
     private String validTill;

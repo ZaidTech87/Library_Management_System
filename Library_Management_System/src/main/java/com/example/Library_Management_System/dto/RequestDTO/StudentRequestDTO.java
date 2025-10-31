@@ -1,4 +1,4 @@
-package com.example.Library_Management_System.dto.requestDTO;
+package com.example.Library_Management_System.dto.RequestDTO;
 
 import com.example.Library_Management_System.enums.Department;
 import lombok.AllArgsConstructor;

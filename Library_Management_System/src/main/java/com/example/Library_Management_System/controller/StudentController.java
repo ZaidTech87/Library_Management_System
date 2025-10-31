@@ -1,6 +1,8 @@
 package com.example.Library_Management_System.controller;
 
-import com.example.Library_Management_System.dto.requestDTO.StudentRequestDTO;
+import com.example.Library_Management_System.dto.RequestDTO.StudentRequestDTO;
+import com.example.Library_Management_System.dto.RequestDTO.UpdateStudentMob_noRequestDTO;
+import com.example.Library_Management_System.dto.ResponceDTO.UpdateStudentMob_noResponceDTO;
 import com.example.Library_Management_System.entity.Student;
 import com.example.Library_Management_System.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +33,11 @@ public class StudentController {
     @PutMapping("/update")
     public String updateStudent(@RequestParam int id, @RequestParam String name) {
         return studentService.updateStudent(id, name);
+    }
+    @PutMapping("/update_Mobile")
+    public UpdateStudentMob_noResponceDTO updateStudentMobile(@RequestBody UpdateStudentMob_noRequestDTO updateStudentMob_noRequestDTO) {
+        return studentService.updateStudentMobile(updateStudentMob_noRequestDTO);
+
     }
 
     // ✅ Find a student by ID
