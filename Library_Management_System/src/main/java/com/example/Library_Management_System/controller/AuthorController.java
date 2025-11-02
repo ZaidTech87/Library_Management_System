@@ -41,6 +41,10 @@ public class AuthorController {
             return authorService.findAllAuthor();
         }
 
+        @GetMapping("/get_by_Email")
+    public Author getAuthorByEmail(@RequestParam("email") String email){
+        return authorService.getByEmail(email);
+        }
 
 
 }

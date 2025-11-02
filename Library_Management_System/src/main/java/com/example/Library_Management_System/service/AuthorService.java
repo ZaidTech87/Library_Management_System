@@ -9,9 +9,10 @@ public interface AuthorService {
 
 
 public String addAuthor(Author author);
-    public String deleteAuthor(@RequestParam int id);
-    public String updateAuthor(@RequestParam int id,@RequestParam String name);
-    public Author findAuthorById(@RequestParam int id);
+    public String deleteAuthor( int id);
+    public String updateAuthor( int id, String name);
+    public Author findAuthorById( int id);
     public List<Author> findAllAuthor();
+    public Author getByEmail(String email);
 
 }

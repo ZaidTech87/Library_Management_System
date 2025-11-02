@@ -1,5 +1,6 @@
 package com.example.Library_Management_System.service.impl;
 
+import com.example.Library_Management_System.dto.ResponceDTO.AuthorResponseDTO;
 import com.example.Library_Management_System.entity.Author;
 import com.example.Library_Management_System.repository.AuthorRepository;
 import com.example.Library_Management_System.service.AuthorService;
@@ -38,7 +39,15 @@ public  class AuthorServiceiImpl implements AuthorService {
     public List<Author> findAllAuthor(){
         return authorRepository.findAll();
     }
+public AuthorResponseDTO getById(String email){
+        Author author= AuthorRepository.findByEmail(email);
 
+        AuthorResponseDTO authorResponseDTO = new AuthorResponseDTO();
+        authorResponseDTO.setName(author.getName());
+        authorResponseDTO.setAge(author.getAge());
+        return authorResponseDTO;
+
+}
 
 
 }
