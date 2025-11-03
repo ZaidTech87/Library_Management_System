@@ -7,7 +7,9 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="card")
@@ -32,4 +34,12 @@ public class Card {
     @JoinColumn
     @JsonIgnore
     private Student student;
+
+    @OneToMany(mappedBy = "card" , cascade = CascadeType.ALL)
+    List<Book> bookIssue = new ArrayList<>();
+
+    @OneToMany(mappedBy = "card" , cascade = CascadeType.ALL)
+    List<Transaction> transactionList = new ArrayList<>();
+
+
 }
