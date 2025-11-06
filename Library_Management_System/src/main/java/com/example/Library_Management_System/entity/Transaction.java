@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 
 import java.util.Date;
@@ -22,6 +23,7 @@ public class Transaction {
     private int id;
 
     private String transactionNumber;
+    @CreationTimestamp
     private Date transactionDate;
     private boolean issueOperation;
     @Enumerated(EnumType.STRING)

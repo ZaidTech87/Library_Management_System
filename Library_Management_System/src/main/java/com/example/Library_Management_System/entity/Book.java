@@ -25,7 +25,7 @@ public class Book {
     private Genre genre;
     private int noOfPages;
     private int price;
-
+   private boolean isIssue = false;
     @ManyToOne
     @JoinColumn
     Author author;
