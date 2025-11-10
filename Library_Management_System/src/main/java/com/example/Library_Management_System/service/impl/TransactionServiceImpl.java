@@ -5,6 +5,7 @@ import com.example.Library_Management_System.dto.ResponceDTO.IssueBookResponseDT
 import com.example.Library_Management_System.entity.Book;
 import com.example.Library_Management_System.entity.Card;
 import com.example.Library_Management_System.entity.Transaction;
+import com.example.Library_Management_System.enums.CardStatus;
 import com.example.Library_Management_System.enums.TransactionStatus;
 import com.example.Library_Management_System.repository.BookRepository;
 import com.example.Library_Management_System.repository.CardRepository;
@@ -48,6 +49,30 @@ public  class TransactionServiceImpl implements TransactionService {
 
         }
         transaction.setBook(book);
+
+        if(card.getCardStatus()!= CardStatus.ACTIVATED){
+            transaction.setTransactionStatus(TransactionStatus.FAILED);
+            transactionRepository.save(transaction);
+            throw new Exception("Card is not Activated");
+        }
+        if(book.isIssue()==true){
+            transaction.setTransactionStatus(TransactionStatus.FAILED);
+            transactionRepository.save(transaction);
+            throw new Exception("boo is not avalaibe");
+        }
+        transaction.setTransactionStatus(TransactionStatus.SUCCEED);
+        book.setIssue(true);
+        book.setCard(card);
+        book.getTransactionsm().add(transaction);
+        card.getBookIssue().add(book);
+        card.getTransactionList().add(transaction);
+        cardRepository.save(card);
+
+        IssueBookResponseDTO issueBookResponseDTO = new IssueBookResponseDTO();
+        issueBookResponseDTO.setBookName(book.getTitle());
+        issueBookResponseDTO.setTransactionNumber(transaction.getTransactionNumber());
+        issueBookResponseDTO.setTransactionStatus(transaction.getTransactionStatus().toString());
+        return issueBookResponseDTO;
 
 
 
