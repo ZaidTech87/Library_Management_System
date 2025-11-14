@@ -1,6 +1,6 @@
 package com.example.Library_Management_System.service.impl;
 
-import com.example.Library_Management_System.dto.ResponceDTO.AuthorResponseDTO;
+import com.example.Library_Management_System.dto.ResponseDTO.AuthorResponseDTO;
 import com.example.Library_Management_System.entity.Author;
 import com.example.Library_Management_System.repository.AuthorRepository;
 import com.example.Library_Management_System.service.AuthorService;

@@ -1,4 +1,4 @@
-package com.example.Library_Management_System.dto.ResponceDTO;
+package com.example.Library_Management_System.dto.ResponseDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,6 +1,6 @@
 package com.example.Library_Management_System.service.impl;
 
-import com.example.Library_Management_System.dto.ResponceDTO.UpdateStudentMob_noResponceDTO;
+import com.example.Library_Management_System.dto.ResponseDTO.UpdateStudentMob_noResponceDTO;
 import com.example.Library_Management_System.dto.RequestDTO.UpdateStudentMob_noRequestDTO;
 import com.example.Library_Management_System.dto.RequestDTO.StudentRequestDTO;
 import com.example.Library_Management_System.entity.Card;
