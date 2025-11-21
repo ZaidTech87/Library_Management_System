@@ -15,7 +15,7 @@ public class TransactionController {
 TransactionService transactionService;
     @PostMapping("/add")
     public IssueBookResponseDTO issueBook(IssueBookRequestDTO issueBookRequestDTO) {
-        IssueBookResponseDTO issueBookResponseDTO = new IssueBookResponseDTO();
+       return transactionService.issueBook(issueBookRequestDTO);
     }
 
 }

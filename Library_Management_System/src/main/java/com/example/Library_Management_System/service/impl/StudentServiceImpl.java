@@ -1,5 +1,7 @@
 package com.example.Library_Management_System.service.impl;
 
+import com.example.Library_Management_System.dto.ResponseDTO.CardResponceDTO;
+import com.example.Library_Management_System.dto.ResponseDTO.StudentResponseDTO;
 import com.example.Library_Management_System.dto.ResponseDTO.UpdateStudentMob_noResponceDTO;
 import com.example.Library_Management_System.dto.RequestDTO.UpdateStudentMob_noRequestDTO;
 import com.example.Library_Management_System.dto.RequestDTO.StudentRequestDTO;
@@ -78,8 +80,24 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student findStudentById(int id) {
-        return studentRepository.findById(id).orElse(null);
+    public StudentResponseDTO getStudentById(int id) {
+
+       Student student = studentRepository.findById(id).get();
+       //responce dto
+        StudentResponseDTO studentResponseDTO = new StudentResponseDTO();
+        studentResponseDTO.setName(student.getName());
+        studentResponseDTO.setAge(student.getAge());
+        studentResponseDTO.setDepartment(student.getDepartment());
+        studentResponseDTO.setMob_no(student.getMob_no());
+        studentResponseDTO.setId(student.getId());
+
+        CardResponceDTO cardResponceDTO = new CardResponceDTO();
+        cardResponceDTO.setIssueDate(student.getCard().getIssueDate());
+        cardResponceDTO.setCardStatus(student.getCard().getCardStatus());
+        cardResponceDTO.setUpdatedOn(student.getCard().getUpdatedOn());
+        cardResponceDTO.setValidTill(student.getCard().getValidTill());
+        cardResponceDTO.setId(student.getCard().getId());
+return studentResponseDTO;
     }
 
     @Override
