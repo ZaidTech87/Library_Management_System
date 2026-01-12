@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Service
-public  class AuthorServiceiImpl implements AuthorService {
+public  class AuthorServiceImpl implements AuthorService {
 
     @Autowired
     AuthorRepository authorRepository;
